@@ -1,9 +1,13 @@
 name = "ConformalGaussHypergeometric"
 uuid = "a0f86bc1-470f-4209-bc5c-9aadbf1cec0c"
-authors = ["Caleb Jacobs <Caleb.Jacobs@colorado.edu>"]
 version = "1.0.0-DEV"
+authors = ["Caleb Jacobs <Caleb.Jacobs@colorado.edu>"]
+
+[deps]
+SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
 
 [compat]
+SpecialFunctions = "2.6.1"
 julia = "1.10"
 
 [extras]

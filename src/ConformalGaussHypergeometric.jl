@@ -1,5 +1,9 @@
 module ConformalGaussHypergeometric
 
-# Write your package code here.
+using SpecialFunctions
+
+include("Comparison.jl")
+
+export conformal2F1
 
 end
