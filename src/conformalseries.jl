@@ -1,9 +1,4 @@
-#=
-#   Conformal mapping base functions
-#
-# Author: Caleb Jacobs
-# DLM: October 30, 2025
-=#
+# Series and conformally mapped series for the Gauss hypergeometric function
 
 function recurrence_relations(a, b, c, ord)
     B = 1 + ord * (a + b)

@@ -1,11 +1,6 @@
-#=
-#   Transformations for 2F1
-#
-# Author: Caleb Jacobs
-# DLM: October 30, 2025
-=#
+# Transformations for the Gauss hypergeometric function
 
-include("ConformalBase.jl")
+include("conformalseries.jl")
 
 function z_2f1(a, b, c, z, ord)
     p = a + b - c

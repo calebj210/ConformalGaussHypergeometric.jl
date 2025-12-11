@@ -2,8 +2,8 @@ module ConformalGaussHypergeometric
 
 using SpecialFunctions
 
-include("Comparison.jl")
+include("conformal2f1.jl")
 
-export conformal2F1
+export conformal2f1
 
 end

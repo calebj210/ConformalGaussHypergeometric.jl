@@ -1,13 +1,37 @@
-#=
-#   Routine for computing 2F1 by comparing multiple evaluations
-#
-# Author: Caleb Jacobs
-# DLM: November 30, 2025
-=#
+# License is MIT: http://julialang.org/license
 
-include("Transformations.jl")
+include("transformations.jl")
 
-function conformal2F1(a, b, c, z; rtol = 1e-14, ord = 2, esterr = false)
+@doc raw"""
+    conformal2f1(a, b, c, z; rtol = 1e-14, ord = 2, esterr = false)
+
+Compute the Gauss hypergeometric function for arbitrary parameters ``a``, ``b``, ``c``, and argument ``z`` defined by
+
+```math
+{_2}F_1(a,b;c;z) = \sum_{n = 0}^\infty \frac{(a)_n (b)_n}{(c)_n} \frac{z^n}{n!}, \quad (x)_n = \frac{\Gamma(x + n)}{\Gamma(n)}, \qquad |z| < 1
+```
+and by analytic continuation in the whole complex plane. Setting ``esterr = true`` also returns an estimate for the relative error in the evaluation.
+end
+
+# Examples
+```jldoctest
+julia> conformal2f1(1, 1/2, 1/3, 3/2)
+-3.0545670655014225 + 2.0623874582040482im
+
+julia> conformal2f1(1.1, 1.2, -1.3, .5 + 3im)
+-1.0631414961412355 + 2.684842244462105im
+
+julia> conformal2f1(1.1, 1.2, -1.3, .5 + 3im; esterr = true)
+(-1.0631414961412355 + 2.684842244462105im, 2.06328233701442e-15)
+```
+
+External links:
+[DLMF 15.1](https://dlmf.nist.gov/15.1)
+
+# Implementation by 
+the conformal mapping method [(paper link)](linkoncesubmitted)
+"""
+function conformal2f1(a, b, c, z; rtol = 1e-14, ord = 2, esterr = false)
     if isreal(z)
         z = real(z) - 0im
     end
@@ -26,16 +50,11 @@ function conformal2F1(a, b, c, z; rtol = 1e-14, ord = 2, esterr = false)
         end
     end
 
-    # if abs2(z) < 1
-    #     trans = [:z, :zoverzminusone, :oneminusz, :oneminusoneoverz]
-    # else
-        # trans = [:z, :oneminusz, :zoverzminusone, :oneminusoneoverz, :oneoverz, :oneoveroneminusz]
-    # end
-
     val = compare(a, b, c, z, trans; rtol, ord, esterr)
     return val
 end
 
+# Compare the evaluations of 2F1 using 
 function compare(a, b, c, z, trans; ord = 4, esterr = false, kwargs...)
     dif = Inf
     idx = [0,0]

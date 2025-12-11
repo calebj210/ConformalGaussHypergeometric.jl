@@ -9,14 +9,14 @@ This package implements the Gauss hypergeometric function `2F1(a, b; c; z)` usin
 ### Evaluate 2F1
 
 ```julia
-julia> conformal2F1(1.1, 1.22, 1.333, .5+.5im)
+julia> conformal2f1(1.1, 1.22, 1.333, .5+.5im)
 1.0013565978548216 + 1.0071914083362823im
 ```
 
 ### Estimate relative error 2F1 evaluations
 
 ```julia
-julia> conformal2F1(1.1, 1.22, 1.333,.5+.5im, esterr=true)
+julia> conformal2f1(1.1, 1.22, 1.333,.5+.5im, esterr=true)
 (1.0013565978548216 + 1.0071914083362823im, 2.2109869152586823e-16)
 ```
 
