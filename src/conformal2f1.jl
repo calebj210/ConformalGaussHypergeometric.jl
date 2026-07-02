@@ -89,7 +89,13 @@ function compare(a, b, c, z, trans; ord = 4, esterr = false, kwargs...)
 
     # @warn "Tolerance not met, answer within a relative tolerance of $(abs(dif / vals[first(idx)]))."
 
-    if esterr
+    if idx == [0,0]
+        if esterr
+            return (NaN + NaN * im, NaN)
+        else
+            return NaN + NaN * im
+        end
+    elseif esterr
         return (sum(vals[idx]) / 2, dif / max(abs.(vals[idx])...))
     else
         return sum(vals[idx]) / 2
