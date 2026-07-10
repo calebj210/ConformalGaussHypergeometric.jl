@@ -21,4 +21,4 @@ julia> conformal2f1(1.1, 1.22, 1.333,.5+.5im, esterr=true)
 ```
 
 ## References
-[1] C. Jacobs, C. Piret and B. Fornberg, Fast and accurate evaluation of the Gauss hypergeometric function, 2026.
+[1] Jacobs, C., Piret, C. & Fornberg, B. Efficient and accurate evaluation of the Gauss hypergeometric function. Numer Algor (2026). <https://doi.org/10.1007/s11075-026-02436-2>

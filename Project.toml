@@ -1,6 +1,6 @@
 name = "ConformalGaussHypergeometric"
 uuid = "a0f86bc1-470f-4209-bc5c-9aadbf1cec0c"
-version = "1.0.1"
+version = "1.0.2"
 authors = ["Caleb Jacobs <Caleb.Jacobs@colorado.edu>"]
 
 [deps]
